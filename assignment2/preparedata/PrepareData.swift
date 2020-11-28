@@ -23,7 +23,7 @@ func getListTeam() -> [Team]{
         var matchInfoList = readFile(nameURL: "csvfile", typeFile: "csv")!
 
         //Create a list match
-        let listMatch = createInfoToMatchList(matchInfoList: &matchInfoList, listTeam: listTeam)
+    let listMatch = createInfoToMatchList(matchInfoList: &matchInfoList, listTeam: listTeam)
 
         //update match information to each team
         updateInfoToTeams(listMatch: listMatch)

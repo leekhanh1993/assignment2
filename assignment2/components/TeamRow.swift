@@ -13,33 +13,33 @@ struct TeamRow: View {
     var body: some View {
         if (team == nil) {
             HStack {
-//                Text("Pos".withCString{
-//                    String(format: "%-10s%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@", $0, "Club", "PL","W","R","L","GF","GA","GD","Pts")
-//                })
-//                .font(.system(size: 14))
-                Text("Pos").frame(width: 30, height: nil, alignment: .leading)
+                Text("Pos").frame(width: 50, height: nil, alignment: .leading)
                 Text("Club").frame(width: 130, height: nil, alignment: .leading)
-                Text("PL")
-                Text("W")
-                Text("R")
-                Text("L")
-                Text("GD")
-                Text("Pts")
+                Text("PL").frame(width: 25, height: nil, alignment: .leading)
+                Text("W").frame(width: 20, height: nil, alignment: .leading)
+                Text("R").frame(width: 20, height: nil, alignment: .leading)
+                Text("L").frame(width: 20, height: nil, alignment: .leading)
+                Text("GD").frame(width: 25, height: nil, alignment: .leading)
+                Text("Pts").frame(width: 30, height: nil, alignment: .leading)
             }
         }else{
             HStack {
-//                Text(String(indexTeam! + 1) + "\t\t" + team!.getStringTeamInfo())
-//                    .font(.system(size: 14))
                 Text(String(indexTeam! + 1))
-                    .frame(width: 30, height: nil, alignment: .leading)
-                Text(team!.name)
-                    .frame(width: 130, height: nil, alignment: .leading)
-                Text(String(team!.matchesPlayed))
-                Text(String(team!.numWon))
-                Text(String(team!.numDrawn))
-                Text(String(team!.numLost))
-                Text(String(team!.goalsDifference))
-                Text(String(team!.numPoints))
+                    .fontWeight(.bold)
+                    .frame(width: 50, height: nil, alignment: .leading)
+                HStack {
+                    Image(team!.nickname).resizable()
+                    .frame(width: 25.0, height: 25.0)
+                    Text(team!.nickname)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .frame(width: 100, height: nil, alignment: .leading)
+                }
+                Text(String(team!.matchesPlayed)).frame(width: 25, height: nil, alignment: .leading)
+                Text(String(team!.numWon)).frame(width: 20, height: nil, alignment: .leading)
+                Text(String(team!.numDrawn)).frame(width: 20, height: nil, alignment: .leading)
+                Text(String(team!.numLost)).frame(width: 20, height: nil, alignment: .leading)
+                Text(String(team!.goalsDifference)).frame(width: 25, height: nil, alignment: .leading)
+                Text(String(team!.numPoints)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).frame(width: 30, height: nil, alignment: .leading)
             }
         }
     }
@@ -47,6 +47,7 @@ struct TeamRow: View {
 
 struct TeamRow_Previews: PreviewProvider {
     static var previews: some View {
-        TeamRow(indexTeam: 0, team: getListTeam()[0])
+        TeamRow(indexTeam: nil, team: nil)
+            .previewLayout(.fixed(width: 450, height: 70))
     }
 }

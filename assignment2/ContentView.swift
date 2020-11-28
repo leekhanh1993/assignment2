@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var listTeams = getListTeam()
+    
     var body: some View {
-        
-        NavigationView {
-            List{TeamRow(indexTeam: nil, team: nil)
-                ForEach(listTeams){ team in
-                    TeamRow(indexTeam: listTeams.firstIndex(where: {$0 === team}), team: team)
-                }
-            }.navigationTitle("Team Table")
+        TabView{
+            Text("Tab Content 2").tabItem { Text("Match Week")
+                .font(.largeTitle) }.tag(1)
+            TeamTableView().tabItem { Text("List Team") }.tag(2)
+            
         }
     }
 }
