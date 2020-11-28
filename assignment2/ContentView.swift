@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    var listTeams = getListTeam()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        NavigationView {
+            List{TeamRow(indexTeam: nil, team: nil)
+                ForEach(listTeams){ team in
+                    TeamRow(indexTeam: listTeams.firstIndex(where: {$0 === team}), team: team)
+                }
+            }.navigationTitle("Team Table")
+        }
     }
 }
 
@@ -19,3 +26,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
