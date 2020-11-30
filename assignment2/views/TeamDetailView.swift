@@ -11,27 +11,43 @@ struct TeamDetailView: View {
     @Environment(\.openURL) var openURL
     var team: Team
     var body: some View {
-        
         VStack {
-            Image("\(team.nickname)stadium")
+            Image("\(team.teamBasicInfo.nickName)stadium")
                 .resizable()
                 .scaledToFit()
             HStack(alignment: .center){
-                Image(team.nickname)
+                Image(team.teamBasicInfo.nickName)
                     .resizable()
                     .frame(width: 40, height: 50)
+                    .padding()
                 VStack(alignment: .leading) {
-                    Text(team.name)
+                    Text(team.teamBasicInfo.name)
                         .font(.title)
                         .fontWeight(.heavy)
-                    Text(team.stadium.name)
+                    Text(team.teamBasicInfo.stadiumInfo.name)
                         .font(.subheadline)
                 }.padding()
+                Spacer()
             }
             HStack(){
                 HStack{
                     Text("Capacity:").bold()
-                    Text("\(team.stadium.capacity)")
+                    Text("\(team.teamBasicInfo.stadiumInfo.capacity)")
+                }
+                Spacer()
+            }.padding()
+            
+            HStack(){
+                HStack{
+                    Text("Built:").bold()
+                    Text("\(team.teamBasicInfo.stadiumInfo.built)")
+                }
+                Spacer()
+            }.padding()
+            HStack(){
+                HStack{
+                    Text("Pitch size:").bold()
+                    Text("\(team.teamBasicInfo.stadiumInfo.pitchSize)")
                 }
                 Spacer()
             }.padding()
@@ -39,7 +55,7 @@ struct TeamDetailView: View {
                 HStack(){
                     Text("Address:").bold()
                         .baselineOffset(20.0)
-                    Text("\(team.stadium.address)")
+                    Text("\(team.teamBasicInfo.stadiumInfo.address)")
                 }
                 Spacer()
             }.padding()

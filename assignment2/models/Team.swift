@@ -1,37 +1,19 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2020C
-  Assessment: Assignment 1
-  Author: Vo Tran Nhut Khanh
-  ID: 3694787
-  Created  date: 11/11/2020
-  Last modified: dd/mm/yyyy (e.g. 05/04/2020)
-  Acknowledgement: Acknowledge the resources that you use here.
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2020C
+ Assessment: Assignment 1
+ Author: Vo Tran Nhut Khanh
+ ID: 3694787
+ Created  date: 11/11/2020
+ Last modified: dd/mm/yyyy (e.g. 05/04/2020)
+ Acknowledgement: Acknowledge the resources that you use here.
+ */
 
 import Foundation
 
 class Team: Identifiable{
-    var name: String
-    var stadium: Stadium
-    var nickname: String {
-        if(self.name == "Man Utd"){
-            return "MUN"
-        }else if(self.name == "West Ham"){
-            return "WHU"
-        }else if(self.name == "Spurs"){
-            return "TOT"
-        }else{
-            //get first three letter
-            let char1 = String(self.name[0]).uppercased()
-            let char2 = String(self.name[1]).uppercased()
-            let char3 = String(self.name[2]).uppercased()
-            return "\(char1 + char2 + char3)"
-        }
-        
-    }
-    
+    var teamBasicInfo: TeamBasicInfo
     var matchesPlayed = 0
     var numWon = 0
     var numDrawn = 0
@@ -42,18 +24,17 @@ class Team: Identifiable{
     var goalsDifference: Int {
         return self.goalsFor - self.goalsAgainst
     }
-     var numPoints: Int {
+    var numPoints: Int {
         return (self.numWon * 3) + self.numDrawn
     }
     
-    init(_ name:String, _ stadium: Stadium) {
-        self.name = name
-        self.stadium = stadium
+    init(_ teamBasicInfo:TeamBasicInfo) {
+        self.teamBasicInfo = teamBasicInfo
     }
     
     //get a string information of the team in a row
     func getStringTeamInfo()->String{
-        return "\(self.name)".withCString{
+        return "\(self.teamBasicInfo.name)".withCString{
             String(format: "%-10s %3d %3d %3d %3d %3d %3d %3d %3d", $0, self.matchesPlayed,
                    self.numWon,self.numDrawn, self.numLost, self.goalsFor, self.goalsAgainst, self.goalsDifference, self.numPoints)
         }
@@ -70,8 +51,3 @@ class Team: Identifiable{
     
 }
 
-extension StringProtocol {
-    subscript(offset: Int) ->Character{
-        self[index(startIndex, offsetBy: offset)]
-    }
-}

@@ -40,9 +40,9 @@ struct TeamRow: View {
                         .frame(width: 40, height: nil, alignment: .center)
                     Spacer()
                     HStack {
-                        Image(team!.nickname).resizable()
+                        Image(team!.teamBasicInfo.nickName).resizable()
                             .frame(width: 25.0, height: 25.0)
-                        Text(team!.nickname)
+                        Text(team!.teamBasicInfo.nickName)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .frame(width: 60, height: nil, alignment: .leading)
                     }
