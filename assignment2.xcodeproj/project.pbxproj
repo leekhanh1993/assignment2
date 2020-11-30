@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A5D24652573629900241A5B /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D24642573629900241A5B /* TeamDetailView.swift */; };
+		AC91448D257532EC0076C4C4 /* basicTeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = AC91448C257532EC0076C4C4 /* basicTeamData.json */; };
 		ACF9E98D257242860051F177 /* PrepareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9E98C257242860051F177 /* PrepareData.swift */; };
 		ACF9E991257246560051F177 /* csvfile.csv in Resources */ = {isa = PBXBuildFile; fileRef = ACF9E990257246560051F177 /* csvfile.csv */; };
 		ACF9E9942572468C0051F177 /* UsefullFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9E9932572468C0051F177 /* UsefullFunctions.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0A5D24642573629900241A5B /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
+		AC91448C257532EC0076C4C4 /* basicTeamData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = basicTeamData.json; sourceTree = "<group>"; };
 		ACF9E98C257242860051F177 /* PrepareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareData.swift; sourceTree = "<group>"; };
 		ACF9E990257246560051F177 /* csvfile.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = csvfile.csv; sourceTree = "<group>"; };
 		ACF9E9932572468C0051F177 /* UsefullFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefullFunctions.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				ACFE6B0F2572333500163E8B /* LaunchScreen.storyboard */,
 				ACFE6B122572333500163E8B /* Info.plist */,
 				ACFE6B0C2572333500163E8B /* Preview Content */,
+				AC91448C257532EC0076C4C4 /* basicTeamData.json */,
 			);
 			path = assignment2;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACFE6B112572333500163E8B /* LaunchScreen.storyboard in Resources */,
+				AC91448D257532EC0076C4C4 /* basicTeamData.json in Resources */,
 				ACFE6B0E2572333500163E8B /* Preview Assets.xcassets in Resources */,
 				ACF9E991257246560051F177 /* csvfile.csv in Resources */,
 				ACFE6B0B2572333500163E8B /* Assets.xcassets in Resources */,

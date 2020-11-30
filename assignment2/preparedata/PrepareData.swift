@@ -7,17 +7,35 @@
 
 import Foundation
 
+struct TeamBasicInfo: Codable, Hashable{
+    
+    var name: String
+    var fullName: String
+    var nickName: String
+    var stadiumInfo: StadiumInfo
+    var contact:  Contact
+    
+}
+
+struct StadiumInfo: Codable,Hashable{
+    var name: String
+    var capacity: Int
+    var built: String
+    var pitchSize: String
+    var address: String
+}
+
 //create a stuct for stadium informations
 struct Stadium{
     var name: String
     var capacity: Int
     var address: String
-    var pitchSize: String
-    var built: String
+    //    var pitchSize: String
+    //    var built: String
 }
 
 //create a struct contact for each football team
-struct Contact{
+struct Contact: Codable, Hashable{
     var phone: String
     var officalWebsiteLink: String
 }
@@ -37,11 +55,11 @@ private let listNameTeam = ["Fulham", "Arsenal", "Crystal Palace", "Southampton"
 
 
 //create an array stadium info
-private let listStadiumInfo = [Stadium(name: "Craven Cottage", capacity: 1900, address: "Stevenage Road, London, SW6 6HH", pitchSize: "100m x 65m", built: "1896"),
-                               Stadium(name: "Emirates Stadium", capacity: 60260, address: "Highbury House, 75 Drayton Park, London, N5 1BU", pitchSize:"105m x 68m", built: "2006"),
-                               Stadium(name: "Selhurst Park", capacity: 25486, address: "Selhurst Park Stadium, Holmesdale Road, London, SE25 6PU", pitchSize: "101m x 68m", built: "1924"),
-                               Stadium(name: "St. Mary's Stadium", capacity: 32384, address: "St Mary's Stadium, Britannia Road, Southampton, SO14 5FP", pitchSize: "105m x 68m", built: "2001  "),
-                               Stadium(name: "Anfield", capacity: 53394, address:   "Anfield, Anfield Road, Liverpool, L4 0TH",pitchSize: "101m x 68m", built:"1884"),
+private let listStadiumInfo = [Stadium(name: "Craven Cottage", capacity: 1900, address: "Stevenage Road, London, SW6 6HH"),
+                               Stadium(name: "Emirates Stadium", capacity: 60260, address: "Highbury House, 75 Drayton Park, London, N5 1BU"),
+                               Stadium(name: "Selhurst Park", capacity: 25486, address: "Selhurst Park Stadium, Holmesdale Road, London, SE25 6PU"),
+                               Stadium(name: "St. Mary's Stadium", capacity: 32384, address: "St Mary's Stadium, Britannia Road, Southampton, SO14 5FP"),
+                               Stadium(name: "Anfield", capacity: 53394, address:   "Anfield, Anfield Road, Liverpool, L4 0TH"),
                                Stadium(name: "Elland Road", capacity: 37890, address: "Elland Road, Leeds, LS11 0ES"),
                                Stadium(name: "London Stadium", capacity: 60000, address: "London Stadium, Queen Elizabeth Olympic Park, London, E20 2ST"),
                                Stadium(name: "St. James' Park", capacity: 52305, address: "St. James' Park, Strawberry Place, Newcastle Upon Tyne, NE1 4ST"),
