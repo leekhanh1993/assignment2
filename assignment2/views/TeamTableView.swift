@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct TeamTableView: View {
-    var listTeams = getListTeam()
+    let listTeams = getListTeam()
     var body: some View {
         NavigationView {
-            List{TeamRow(indexTeam: nil, team: nil)
-                ForEach(listTeams){ team in
-                    TeamRow(indexTeam: listTeams.firstIndex(where: {$0 === team}), team: team)
+            List{
+                Section(header: TeamRow(indexTeam: nil, team: nil)){
+                    ForEach(listTeams){team in
+                        NavigationLink(destination: TeamDetailView(team: team)) {
+                            TeamRow(indexTeam: listTeams.firstIndex(where: {$0 === team}), team: team)
+                        }
+                    }
                 }
             }.navigationBarTitle("Team Table")
+            .listStyle(GroupedListStyle())
         }
     }
 }

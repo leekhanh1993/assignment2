@@ -13,33 +13,53 @@ struct TeamRow: View {
     var body: some View {
         if (team == nil) {
             HStack {
-                Text("Pos").frame(width: 50, height: nil, alignment: .leading)
-                Text("Club").frame(width: 130, height: nil, alignment: .leading)
-                Text("PL").frame(width: 25, height: nil, alignment: .leading)
-                Text("W").frame(width: 20, height: nil, alignment: .leading)
-                Text("R").frame(width: 20, height: nil, alignment: .leading)
-                Text("L").frame(width: 20, height: nil, alignment: .leading)
-                Text("GD").frame(width: 25, height: nil, alignment: .leading)
-                Text("Pts").frame(width: 30, height: nil, alignment: .leading)
+                Group{
+                    Text("Pos").frame(width: 40, height: nil, alignment: .center)
+                    Spacer()
+                    Text("Club").frame(width: 90, height: nil, alignment: .leading)
+                    Spacer()
+                    Text("PL").frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
+                    Text("W").frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
+                    Text("R").frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
+                }
+                
+                Text("L").frame(width: 20, height: nil, alignment: .center)
+                Spacer()
+                Text("GD").frame(width: 25, height: nil, alignment: .center)
+                Spacer()
+                Text("Pts").frame(width: 40, height: nil, alignment: .leading)
             }
         }else{
             HStack {
-                Text(String(indexTeam! + 1))
-                    .fontWeight(.bold)
-                    .frame(width: 50, height: nil, alignment: .leading)
-                HStack {
-                    Image(team!.nickname).resizable()
-                    .frame(width: 25.0, height: 25.0)
-                    Text(team!.nickname)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .frame(width: 100, height: nil, alignment: .leading)
+                Group{
+                    Text(String(indexTeam! + 1))
+                        .fontWeight(.bold)
+                        .frame(width: 40, height: nil, alignment: .center)
+                    Spacer()
+                    HStack {
+                        Image(team!.nickname).resizable()
+                            .frame(width: 25.0, height: 25.0)
+                        Text(team!.nickname)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .frame(width: 60, height: nil, alignment: .leading)
+                    }
+                    Spacer()
+                    Text(String(team!.matchesPlayed)).frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
+                    Text(String(team!.numWon)).frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
+                    Text(String(team!.numDrawn)).frame(width: 20, height: nil, alignment: .center)
+                    Spacer()
                 }
-                Text(String(team!.matchesPlayed)).frame(width: 25, height: nil, alignment: .leading)
-                Text(String(team!.numWon)).frame(width: 20, height: nil, alignment: .leading)
-                Text(String(team!.numDrawn)).frame(width: 20, height: nil, alignment: .leading)
-                Text(String(team!.numLost)).frame(width: 20, height: nil, alignment: .leading)
-                Text(String(team!.goalsDifference)).frame(width: 25, height: nil, alignment: .leading)
-                Text(String(team!.numPoints)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).frame(width: 30, height: nil, alignment: .leading)
+                Text(String(team!.numLost)).frame(width: 20, height: nil, alignment: .center)
+                Spacer()
+                Text(String(team!.goalsDifference)).frame(width: 25, height: nil, alignment: .center)
+                Spacer()
+                Text(String(team!.numPoints))
+                    .fontWeight(.bold)
             }
         }
     }
