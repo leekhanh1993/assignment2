@@ -24,14 +24,22 @@ struct TeamDetailView: View {
                     Text(team.name)
                         .font(.title)
                         .fontWeight(.heavy)
-                    Text(team.nickname)
+                    Text(team.stadium.name)
                         .font(.subheadline)
                 }.padding()
             }
             HStack(){
                 HStack{
                     Text("Capacity:").bold()
-                    Text("\(8000)")
+                    Text("\(team.stadium.capacity)")
+                }
+                Spacer()
+            }.padding()
+            HStack(){
+                HStack(){
+                    Text("Address:").bold()
+                        .baselineOffset(20.0)
+                    Text("\(team.stadium.address)")
                 }
                 Spacer()
             }.padding()

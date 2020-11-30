@@ -14,6 +14,7 @@ import Foundation
 
 class Team: Identifiable{
     var name: String
+    var stadium: Stadium
     var nickname: String {
         if(self.name == "Man Utd"){
             return "MUN"
@@ -22,7 +23,7 @@ class Team: Identifiable{
         }else if(self.name == "Spurs"){
             return "TOT"
         }else{
-            //get three fisrt letter
+            //get first three letter
             let char1 = String(self.name[0]).uppercased()
             let char2 = String(self.name[1]).uppercased()
             let char3 = String(self.name[2]).uppercased()
@@ -45,8 +46,9 @@ class Team: Identifiable{
         return (self.numWon * 3) + self.numDrawn
     }
     
-    init(_ name:String) {
+    init(_ name:String, _ stadium: Stadium) {
         self.name = name
+        self.stadium = stadium
     }
     
     //get a string information of the team in a row
