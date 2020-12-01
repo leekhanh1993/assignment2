@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A5D24652573629900241A5B /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D24642573629900241A5B /* TeamDetailView.swift */; };
 		0A95A3A6257561E700D106EE /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A3A5257561E700D106EE /* DataLoader.swift */; };
+		0AD8A31825760B83009489A7 /* MatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8A31725760B83009489A7 /* MatchRow.swift */; };
+		0AD8A31B25760D6B009489A7 /* matchData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8A31A25760D6B009489A7 /* matchData.json */; };
+		0AD8A31F25763FD8009489A7 /* MatchWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8A31E25763FD8009489A7 /* MatchWeekView.swift */; };
 		AC91448D257532EC0076C4C4 /* basicTeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = AC91448C257532EC0076C4C4 /* basicTeamData.json */; };
 		ACF9E98D257242860051F177 /* PrepareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9E98C257242860051F177 /* PrepareData.swift */; };
 		ACF9E991257246560051F177 /* csvfile.csv in Resources */ = {isa = PBXBuildFile; fileRef = ACF9E990257246560051F177 /* csvfile.csv */; };
@@ -19,7 +22,6 @@
 		ACFE6B0B2572333500163E8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACFE6B0A2572333500163E8B /* Assets.xcassets */; };
 		ACFE6B0E2572333500163E8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACFE6B0D2572333500163E8B /* Preview Assets.xcassets */; };
 		ACFE6B112572333500163E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACFE6B0F2572333500163E8B /* LaunchScreen.storyboard */; };
-		ACFE6B1C2572377E00163E8B /* myData.json in Resources */ = {isa = PBXBuildFile; fileRef = ACFE6B1B2572377E00163E8B /* myData.json */; };
 		ACFE6B20257238A100163E8B /* TeamTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE6B1F257238A100163E8B /* TeamTableView.swift */; };
 		ACFE6B2525723B1500163E8B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE6B2425723B1500163E8B /* Team.swift */; };
 		ACFE6B2825723B3E00163E8B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE6B2725723B3E00163E8B /* Match.swift */; };
@@ -29,6 +31,9 @@
 /* Begin PBXFileReference section */
 		0A5D24642573629900241A5B /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
 		0A95A3A5257561E700D106EE /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		0AD8A31725760B83009489A7 /* MatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRow.swift; sourceTree = "<group>"; };
+		0AD8A31A25760D6B009489A7 /* matchData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = matchData.json; sourceTree = "<group>"; };
+		0AD8A31E25763FD8009489A7 /* MatchWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWeekView.swift; sourceTree = "<group>"; };
 		AC91448C257532EC0076C4C4 /* basicTeamData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = basicTeamData.json; sourceTree = "<group>"; };
 		ACF9E98C257242860051F177 /* PrepareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareData.swift; sourceTree = "<group>"; };
 		ACF9E990257246560051F177 /* csvfile.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = csvfile.csv; sourceTree = "<group>"; };
@@ -41,7 +46,6 @@
 		ACFE6B0D2572333500163E8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACFE6B102572333500163E8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACFE6B122572333500163E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACFE6B1B2572377E00163E8B /* myData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = myData.json; sourceTree = "<group>"; };
 		ACFE6B1F257238A100163E8B /* TeamTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableView.swift; sourceTree = "<group>"; };
 		ACFE6B2425723B1500163E8B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		ACFE6B2725723B3E00163E8B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				ACF9E98C257242860051F177 /* PrepareData.swift */,
 				ACF9E9932572468C0051F177 /* UsefullFunctions.swift */,
 				0A95A3A5257561E700D106EE /* DataLoader.swift */,
+				0AD8A31A25760D6B009489A7 /* matchData.json */,
 			);
 			path = preparedata;
 			sourceTree = "<group>";
@@ -93,7 +98,6 @@
 				ACF9E98B257242560051F177 /* preparedata */,
 				ACFE6B22257239BC00163E8B /* models */,
 				ACFE6B1E2572386300163E8B /* views */,
-				ACFE6B1A257236F800163E8B /* data */,
 				ACFE6B192572369E00163E8B /* components */,
 				ACFE6B042572333200163E8B /* AppDelegate.swift */,
 				ACFE6B062572333200163E8B /* SceneDelegate.swift */,
@@ -118,16 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				ACFE6B2A2572400100163E8B /* TeamRow.swift */,
+				0AD8A31725760B83009489A7 /* MatchRow.swift */,
 			);
 			path = components;
-			sourceTree = "<group>";
-		};
-		ACFE6B1A257236F800163E8B /* data */ = {
-			isa = PBXGroup;
-			children = (
-				ACFE6B1B2572377E00163E8B /* myData.json */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		ACFE6B1E2572386300163E8B /* views */ = {
@@ -135,6 +132,7 @@
 			children = (
 				ACFE6B1F257238A100163E8B /* TeamTableView.swift */,
 				0A5D24642573629900241A5B /* TeamDetailView.swift */,
+				0AD8A31E25763FD8009489A7 /* MatchWeekView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -208,9 +206,9 @@
 				ACFE6B112572333500163E8B /* LaunchScreen.storyboard in Resources */,
 				AC91448D257532EC0076C4C4 /* basicTeamData.json in Resources */,
 				ACFE6B0E2572333500163E8B /* Preview Assets.xcassets in Resources */,
+				0AD8A31B25760D6B009489A7 /* matchData.json in Resources */,
 				ACF9E991257246560051F177 /* csvfile.csv in Resources */,
 				ACFE6B0B2572333500163E8B /* Assets.xcassets in Resources */,
-				ACFE6B1C2572377E00163E8B /* myData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +221,7 @@
 			files = (
 				0A95A3A6257561E700D106EE /* DataLoader.swift in Sources */,
 				ACFE6B20257238A100163E8B /* TeamTableView.swift in Sources */,
+				0AD8A31825760B83009489A7 /* MatchRow.swift in Sources */,
 				ACFE6B052572333200163E8B /* AppDelegate.swift in Sources */,
 				ACFE6B072572333200163E8B /* SceneDelegate.swift in Sources */,
 				ACFE6B2B2572400100163E8B /* TeamRow.swift in Sources */,
@@ -230,6 +229,7 @@
 				ACF9E98D257242860051F177 /* PrepareData.swift in Sources */,
 				ACFE6B092572333200163E8B /* ContentView.swift in Sources */,
 				ACF9E9942572468C0051F177 /* UsefullFunctions.swift in Sources */,
+				0AD8A31F25763FD8009489A7 /* MatchWeekView.swift in Sources */,
 				0A5D24652573629900241A5B /* TeamDetailView.swift in Sources */,
 				ACFE6B2825723B3E00163E8B /* Match.swift in Sources */,
 			);

@@ -9,38 +9,34 @@ import Foundation
 
 //get data from basicTeamData.json
 let basicTeamData = DataLoader().teamBasicInfo
+
+//get data from basicTeamData.json
+let matchInfo = DataLoader().matchInfo
 //create team instances based on list Name Team and add into listTeam
-private var listTeam: [String:Team] = [:]
+private var listTeam: [Team] = []
 
 
 func getListTeam() -> [Team]{
     for team in basicTeamData{
-        listTeam[team.name] = Team(team)
+        listTeam.append(Team(team))
     }
     //update match information to each team
     updateInfoToTeams(listMatch: getListMatch())
     
+    
+    
     //sort list team based on team points
-    let sortedListTeam = listTeam.sorted(by: {(arg0, arg1) -> Bool in
-        let (_, valueTeamA) = arg0
-        let (_, valueTeamB) = arg1
-        return valueTeamA.numPoints > valueTeamB.numPoints
+    let sortedListTeam = listTeam.sorted(by: {(team1,team2)->Bool in
+        return team1.numPoints > team2.numPoints
     })
     
-    //create a new array to store Teams
-    var listTeams: [Team] = []
-    for team in sortedListTeam{
-        listTeams.append(team.value)
-    }
-    return listTeams
+    return sortedListTeam
 }
 func getListMatch() -> [Match]{
     for team in basicTeamData{
-        listTeam[team.name] = Team(team)
+        listTeam.append(Team(team))
     }
-    //Read File csvfile.csv
-    var matchInfoList = readFile(nameURL: "csvfile", typeFile: "csv")!
-    
+
     //Create and return a list match
-    return createInfoToMatchList(matchInfoList: &matchInfoList, listTeam: listTeam)
+    return createInfoToMatchList(matchInfoList: matchInfo, listTeam: listTeam)
 }

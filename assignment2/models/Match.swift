@@ -12,15 +12,15 @@
 
 import Foundation
 
-class Match{
+class Match: Identifiable{
     var homeTeam: Team
     var awayTeam: Team
     var date: String
     var location: String
-    var homeTeamScore: Int
-    var awayTeamScore: Int
+    var homeTeamScore: Int?
+    var awayTeamScore: Int?
     
-    init(homeTeam: Team, awayTeam: Team, date: String, location: String, homeTeamScore: Int, awayTeamScore: Int) {
+    init(homeTeam: Team, awayTeam: Team, date: String, location: String, homeTeamScore: Int?, awayTeamScore: Int?) {
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
         self.date = date
@@ -28,6 +28,4 @@ class Match{
         self.homeTeamScore = homeTeamScore
         self.awayTeamScore = awayTeamScore
     }
-    
-    
 }

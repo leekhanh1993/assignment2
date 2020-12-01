@@ -7,8 +7,16 @@
 
 import Foundation
 
+struct MatchInfo: Codable, Hashable{
+    var roundNumber: Int
+    var date: String
+    var location: String
+    var homeTeam: String
+    var awayTeam: String
+    var result: String?
+}
+
 struct TeamBasicInfo: Codable, Hashable{
-    
     var name: String
     var fullName: String
     var nickName: String
@@ -32,18 +40,32 @@ struct Contact: Codable, Hashable{
 
 public class DataLoader{
     @Published var teamBasicInfo = [TeamBasicInfo]()
+    @Published var matchInfo = [MatchInfo]()
     
     init() {
-        load()
+        loadTeamBasicInfo()
+        loadMatchInfo()
     }
     
-    func load() {
+    func loadTeamBasicInfo() {
         if let url = Bundle.main.url(forResource: "basicTeamData", withExtension: "json"){
             do {
                 let data = try Data(contentsOf: url)
                 let jsonDecoder = JSONDecoder()
                 let dataFromJson = try jsonDecoder.decode([TeamBasicInfo].self, from: data)
                 self.teamBasicInfo = dataFromJson
+            } catch {
+                    print(error)
+            }
+        }
+    }
+    func loadMatchInfo() {
+        if let url = Bundle.main.url(forResource: "matchData", withExtension: "json"){
+            do {
+                let data = try Data(contentsOf: url)
+                let jsonDecoder = JSONDecoder()
+                let dataFromJson = try jsonDecoder.decode([MatchInfo].self, from: data)
+                self.matchInfo = dataFromJson
             } catch {
                     print(error)
             }
