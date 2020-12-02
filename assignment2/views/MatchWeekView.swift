@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct MatchWeekView: View {
-    let listTimeMatch = DataLoader().listTimeMatch
+    let listTimeMatchinCurrentWeek = DataLoader().listTimeMatchinCurrentWeek
     var body: some View {
         NavigationView {
             List{
-                ForEach(Array(listTimeMatch.keys), id: \.self){ date in
+                ForEach(Array(listTimeMatchinCurrentWeek.keys), id: \.self){ date in
                     Section(header: Text(date), content:{
-                        ForEach(Array(listTimeMatch[date]!)){match in
+                        ForEach(Array(listTimeMatchinCurrentWeek[date]!)){match in
                             MatchRow(match: match)
                         }
                     })
                 }
-            }.navigationBarTitle("Match Week")
+            }.navigationBarTitle("Match Week", displayMode: .inline)
+            .listStyle(GroupedListStyle())
         }
     }
 }

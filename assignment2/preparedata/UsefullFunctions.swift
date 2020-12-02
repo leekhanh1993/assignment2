@@ -12,14 +12,31 @@
 
 import Foundation
 
-func convertUKToLocalTime(yourDate: String, indentifier: String) -> String {
+func getAllDateInCurrentWeek() -> [String]{
+    var listDateInCurrentWeek = [String]()
+    //Create DateFormatter
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE, d MMMM yyyy"
+    
+    let currentDate = Date()
+    let calendar = Calendar.current
+    let dayOfWeek = calendar.component(.weekday, from: currentDate) - 1 
+    let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: currentDate)!
+    let days = (weekdays.lowerBound ..< weekdays.upperBound)
+        .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: currentDate) }
+    for day in days {
+        listDateInCurrentWeek.append(dateFormatter.string(from: day))
+    }
+    return listDateInCurrentWeek
+}
+func convertUKToLocalTime(yourDate: String) -> String {
     var localTime:String = ""
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd/MM/yyyy Hh:mm"
     dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
     if let dt = dateFormatter.date(from: yourDate) {
         dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "EEEE, d MMMM yyyy"
+        dateFormatter.dateFormat = "EEEE, d MMMM yyyy-hh:mm"
         localTime = dateFormatter.string(from: dt)
     } else {
         print("Error decoding the string")

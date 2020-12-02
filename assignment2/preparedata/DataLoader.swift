@@ -43,17 +43,25 @@ public class DataLoader{
     @Published var matchInfo = [MatchInfo]()
     @Published var listTeam = [Team]()
     @Published var listTimeMatch = [String:[Match]]()
+    @Published var listTimeMatchinCurrentWeek = [String:[Match]]()
     
     init() {
         loadTeamBasicInfo()
         loadMatchInfo()
         fillBasicTeamData()
         loadListTimeMatch()
+        loadListTimeMatchInCurrentWeek()
     }
+    
+    func loadListTimeMatchInCurrentWeek() {
+        let allDateInCurrentWeek = getAllDateInCurrentWeek()
+        self.listTimeMatchinCurrentWeek = listTimeMatch.filter({allDateInCurrentWeek.contains($0.key)})
+    }
+    
     
     func loadListTimeMatch(){
         for match in createInfoToMatchList(matchInfoList: self.matchInfo, listTeam: self.listTeam) {
-            let currentTime = (convertUKToLocalTime(yourDate: match.date, indentifier: "Europe/London"))
+            let currentTime = convertUKToLocalTime(yourDate: match.date).components(separatedBy: "-")[0]
             if(self.listTimeMatch.contains(where: {$0.key == currentTime})){
                 listTimeMatch[currentTime]?.append(match)
             }else{
@@ -76,7 +84,7 @@ public class DataLoader{
                 let dataFromJson = try jsonDecoder.decode([TeamBasicInfo].self, from: data)
                 self.teamBasicInfo = dataFromJson
             } catch {
-                    print(error)
+                print(error)
             }
         }
     }
@@ -88,7 +96,7 @@ public class DataLoader{
                 let dataFromJson = try jsonDecoder.decode([MatchInfo].self, from: data)
                 self.matchInfo = dataFromJson
             } catch {
-                    print(error)
+                print(error)
             }
         }
     }

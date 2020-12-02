@@ -10,8 +10,7 @@ import SwiftUI
 struct MatchRow: View {
     let match: Match
     var body: some View {
-        HStack {
-            Spacer()
+        HStack{
             Text(match.homeTeam.teamBasicInfo.name)
                 .font(.system(size: 15))
                 .fontWeight(.medium)
@@ -27,7 +26,7 @@ struct MatchRow: View {
                     Spacer()
                     Text(String(match.awayTeamScore!)).bold()
                 }else{
-                    Text(match.date.components(separatedBy: " ")[1]).bold()
+                    Text(convertUKToLocalTime(yourDate: match.date).components(separatedBy: "-")[1]).bold()
                 }
             }.frame(width: 50, height: nil, alignment: .center)
             Image(match.awayTeam.teamBasicInfo.nickName)
@@ -37,7 +36,6 @@ struct MatchRow: View {
                 .font(.system(size: 15))
                 .fontWeight(.medium)
                 .frame(width: 100, height: nil, alignment: .leading)
-            Spacer()
         }
     }
 }
