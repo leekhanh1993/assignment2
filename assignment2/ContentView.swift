@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    let listTimeMatch = DataLoader().listTimeMatch
     var body: some View {
         TabView{
-            MatchWeekView().tabItem { Text("Match Week")
-                .font(.largeTitle) }.tag(1)
+            MatchWeekView().tabItem { Text("Match Week") }.tag(1)
             TeamTableView().tabItem { Text("List Team") }.tag(2)
         }
     }

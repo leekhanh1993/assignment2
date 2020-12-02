@@ -32,31 +32,16 @@ func getAllDateInCurrentWeek() -> [String]{
 func convertUKToLocalTime(yourDate: String) -> String {
     var localTime:String = ""
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM/yyyy Hh:mm"
+    dateFormatter.dateFormat = "dd/MM/yyyy H:mm"
     dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
     if let dt = dateFormatter.date(from: yourDate) {
         dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "EEEE, d MMMM yyyy-hh:mm"
+        dateFormatter.dateFormat = "EEEE, d MMMM yyyy-H:mm"
         localTime = dateFormatter.string(from: dt)
     } else {
         print("Error decoding the string")
     }
     return localTime
-}
-func getCurrentAllDaysOfWeek()->[String] {
-    var listDate: [String] = []
-    
-    let calendar = Calendar.current
-    let today = calendar.startOfDay(for: Date())
-    let dayOfWeek = calendar.component(.weekday, from: today)
-    let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
-    let days = (weekdays.lowerBound ..< weekdays.upperBound)
-        .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: today) }  // use `flatMap` in Xcode versions before 9.3
-        .filter { !calendar.isDateInWeekend($0) }
-    for day in days {
-        listDate.append(day.getFormattedDate(format: "dd/MM/yyyy"))
-    }
-    return listDate
 }
 
 //read file
