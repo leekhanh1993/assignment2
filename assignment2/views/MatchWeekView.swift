@@ -16,7 +16,6 @@ struct MatchWeekView: View {
                     MatchRow(match: match)
                 }
             }.navigationBarTitle("Match Week")
-            
         }
     }
 }

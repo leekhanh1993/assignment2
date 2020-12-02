@@ -41,10 +41,18 @@ struct Contact: Codable, Hashable{
 public class DataLoader{
     @Published var teamBasicInfo = [TeamBasicInfo]()
     @Published var matchInfo = [MatchInfo]()
+    @Published var listTeam: [Team] = []
     
     init() {
         loadTeamBasicInfo()
         loadMatchInfo()
+        fillBasicTeamData()
+    }
+    
+    func fillBasicTeamData() {
+        for team in self.teamBasicInfo{
+            self.listTeam.append(Team(team))
+        }
     }
     
     func loadTeamBasicInfo() {

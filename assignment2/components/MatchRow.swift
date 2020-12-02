@@ -21,13 +21,13 @@ struct MatchRow: View {
                 .frame(width: 35, height: 40)
             HStack{
                 if(match.homeTeamScore != nil){
-                    Text(String(match.homeTeamScore!))
+                    Text(String(match.homeTeamScore!)).bold()
                     Spacer()
                     Text("-")
                     Spacer()
-                    Text(String(match.awayTeamScore!))
+                    Text(String(match.awayTeamScore!)).bold()
                 }else{
-                    Text(match.date.components(separatedBy: " ")[1])
+                    Text(match.date.components(separatedBy: " ")[1]).bold()
                 }
             }.frame(width: 50, height: nil, alignment: .center)
             Image(match.awayTeam.teamBasicInfo.nickName)

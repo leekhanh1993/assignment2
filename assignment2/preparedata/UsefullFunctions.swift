@@ -12,6 +12,21 @@
 
 import Foundation
 
+func getCurrentAllDaysOfWeek()->[String] {
+    var listDate: [String] = []
+    
+    let calendar = Calendar.current
+    let today = calendar.startOfDay(for: Date())
+    let dayOfWeek = calendar.component(.weekday, from: today)
+    let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
+    let days = (weekdays.lowerBound ..< weekdays.upperBound)
+        .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: today) }  // use `flatMap` in Xcode versions before 9.3
+        .filter { !calendar.isDateInWeekend($0) }
+    for day in days {
+        listDate.append(day.getFormattedDate(format: "dd/MM/yyyy"))
+    }
+    return listDate
+}
 
 //read file
 func readFile(nameURL: String, typeFile: String)-> [String]?{
@@ -56,7 +71,8 @@ func createInfoToMatchList(matchInfoList: [MatchInfo], listTeam: [Team])-> [Matc
 
 //This function will use data information of list match and put them to each team
 func updateInfoToTeams( listMatch: [Match]){
-    for match in listMatch.filter({$0.awayTeamScore != nil}){
+    let listComplMatch = listMatch.filter({$0.awayTeamScore != nil})
+    for match in listComplMatch{
         let homeTeam = match.homeTeam
         let awayTeam = match.awayTeam
         //create variable score for both team
@@ -132,5 +148,13 @@ func updateInfoToTeams( listMatch: [Match]){
         }
         
         
+    }
+}
+
+extension Date {
+   func getFormattedDate(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
     }
 }
