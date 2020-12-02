@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let listTimeMatch = DataLoader().listTimeMatch
     var body: some View {
         TabView{
             MatchWeekView().tabItem { Text("Match Week")

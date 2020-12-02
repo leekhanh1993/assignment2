@@ -18,7 +18,7 @@ struct TeamRow: View {
                     Spacer()
                     Text("Club").frame(width: 90, height: nil, alignment: .leading)
                     Spacer()
-                    Text("PL").frame(width: 20, height: nil, alignment: .center)
+                    Text("PL").frame(width: 25, height: nil, alignment: .center)
                     Spacer()
                     Text("W").frame(width: 20, height: nil, alignment: .center)
                     Spacer()
@@ -41,7 +41,7 @@ struct TeamRow: View {
                     Spacer()
                     HStack {
                         Image(team!.teamBasicInfo.nickName).resizable()
-                            .frame(width: 25.0, height: 25.0)
+                            .frame(width: 25, height: 30)
                         Text(team!.teamBasicInfo.nickName)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .frame(width: 60, height: nil, alignment: .leading)
@@ -67,7 +67,7 @@ struct TeamRow: View {
 
 struct TeamRow_Previews: PreviewProvider {
     static var previews: some View {
-        TeamRow(indexTeam: nil, team: nil)
+        TeamRow(indexTeam: 0, team: getListTeam()[0])
             .previewLayout(.fixed(width: 450, height: 70))
     }
 }

@@ -41,12 +41,25 @@ struct Contact: Codable, Hashable{
 public class DataLoader{
     @Published var teamBasicInfo = [TeamBasicInfo]()
     @Published var matchInfo = [MatchInfo]()
-    @Published var listTeam: [Team] = []
+    @Published var listTeam = [Team]()
+    @Published var listTimeMatch = [String:[Match]]()
     
     init() {
         loadTeamBasicInfo()
         loadMatchInfo()
         fillBasicTeamData()
+        loadListTimeMatch()
+    }
+    
+    func loadListTimeMatch(){
+        for match in createInfoToMatchList(matchInfoList: self.matchInfo, listTeam: self.listTeam) {
+            let currentTime = (convertUKToLocalTime(yourDate: match.date, indentifier: "Europe/London"))
+            if(self.listTimeMatch.contains(where: {$0.key == currentTime})){
+                listTimeMatch[currentTime]?.append(match)
+            }else{
+                listTimeMatch[currentTime] = [match]
+            }
+        }
     }
     
     func fillBasicTeamData() {
@@ -78,5 +91,20 @@ public class DataLoader{
                     print(error)
             }
         }
+    }
+}
+
+//create an extension for Array to remove duplicate elements
+
+extension Array where Element: Hashable{
+    func removingDuplicatEle() -> [Element] {
+        var tmpDict = [Element:Bool]()
+        
+        return filter{
+            tmpDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+    mutating func removeDuplicateEle(){
+        self = self.removingDuplicatEle()
     }
 }

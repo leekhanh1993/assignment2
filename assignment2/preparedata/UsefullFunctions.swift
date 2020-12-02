@@ -12,6 +12,20 @@
 
 import Foundation
 
+func convertUKToLocalTime(yourDate: String, indentifier: String) -> String {
+    var localTime:String = ""
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/yyyy Hh:mm"
+    dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
+    if let dt = dateFormatter.date(from: yourDate) {
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "EEEE, d MMMM yyyy"
+        localTime = dateFormatter.string(from: dt)
+    } else {
+        print("Error decoding the string")
+    }
+    return localTime
+}
 func getCurrentAllDaysOfWeek()->[String] {
     var listDate: [String] = []
     
@@ -152,7 +166,7 @@ func updateInfoToTeams( listMatch: [Match]){
 }
 
 extension Date {
-   func getFormattedDate(format: String) -> String {
+    func getFormattedDate(format: String) -> String {
         let dateformat = DateFormatter()
         dateformat.dateFormat = format
         return dateformat.string(from: self)

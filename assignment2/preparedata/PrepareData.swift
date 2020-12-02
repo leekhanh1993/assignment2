@@ -18,9 +18,7 @@ let listTeam = DataLoader().listTeam
 
 
 
-
 func getListTeam() -> [Team]{
-    
     //update match information to each team
     updateInfoToTeams(listMatch: getListMatch())
     

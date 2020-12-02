@@ -18,7 +18,7 @@ struct TeamDetailView: View {
             HStack(alignment: .center){
                 Image(team.teamBasicInfo.nickName)
                     .resizable()
-                    .frame(width: 40, height: 50)
+                    .frame(width: 70, height: 75)
                     .padding()
                 VStack(alignment: .leading) {
                     Text(team.teamBasicInfo.name)
@@ -32,6 +32,7 @@ struct TeamDetailView: View {
             HStack(){
                 HStack{
                     Text("Capacity:").bold()
+                        .frame(width: 90, height: nil, alignment: .leading)
                     Text("\(team.teamBasicInfo.stadiumInfo.capacity)")
                 }
                 Spacer()
@@ -40,6 +41,7 @@ struct TeamDetailView: View {
             HStack(){
                 HStack{
                     Text("Built:").bold()
+                        .frame(width: 90, height: nil, alignment: .leading)
                     Text("\(team.teamBasicInfo.stadiumInfo.built)")
                 }
                 Spacer()
@@ -47,6 +49,7 @@ struct TeamDetailView: View {
             HStack(){
                 HStack{
                     Text("Pitch size:").bold()
+                        .frame(width: 90, height: nil, alignment: .leading)
                     Text("\(team.teamBasicInfo.stadiumInfo.pitchSize)")
                 }
                 Spacer()
@@ -55,7 +58,16 @@ struct TeamDetailView: View {
                 HStack(){
                     Text("Address:").bold()
                         .baselineOffset(20.0)
+                        .frame(width: 90, height: nil, alignment: .leading)
                     Text("\(team.teamBasicInfo.stadiumInfo.address)")
+                }
+                Spacer()
+            }.padding()
+            
+            HStack(){
+                HStack(){
+                    Text("Phone:").bold().frame(width: 90, height: nil, alignment: .leading)
+                    Text("\(team.teamBasicInfo.contact.phone)")
                 }
                 Spacer()
             }.padding()
