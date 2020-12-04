@@ -43,7 +43,7 @@ public class DataLoader{
     @Published var matchInfo = [MatchInfo]()
     @Published var listTeam = [Team]()
     @Published var listTimeMatch = [String:[Match]]()
-    @Published var listTimeMatchinCurrentWeek = [String:[Match]]()
+    @Published var listTimeMatchAvailableInCurrentWeek = [String]()
     
     init() {
         loadTeamBasicInfo()
@@ -54,8 +54,13 @@ public class DataLoader{
     }
     
     func loadListTimeMatchInCurrentWeek() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, d MMMM yyyy"
+        dateFormatter.timeZone = TimeZone.current
         let allDateInCurrentWeek = getAllDateInCurrentWeek()
-        self.listTimeMatchinCurrentWeek = listTimeMatch.filter({allDateInCurrentWeek.contains($0.key)})
+        self.listTimeMatchAvailableInCurrentWeek = Array(listTimeMatch.filter({allDateInCurrentWeek.contains($0.key)}).keys).sorted(by: {(date1,date2)->Bool in
+            return dateFormatter.date(from: date1)!.compare(dateFormatter.date(from: date2)!) == .orderedAscending
+        })
     }
     
     

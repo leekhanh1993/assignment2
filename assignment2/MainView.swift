@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         TabView{
             MatchWeekView().tabItem { Text("Match Week") }.tag(1)
@@ -16,10 +16,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone 8", "iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            ContentView()
+            MainView()
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

@@ -12,6 +12,18 @@
 
 import Foundation
 
+
+func getMatchesBasedOnDate(date: String) -> [Match] {
+    let listTimeMatch = DataLoader().listTimeMatch
+    var listMatch = [Match]()
+    for key in listTimeMatch.keys {
+        if(key == date){
+            listMatch = listTimeMatch[key]!
+            break
+        }
+    }
+    return listMatch
+}
 func getAllDateInCurrentWeek() -> [String]{
     var listDateInCurrentWeek = [String]()
     //Create DateFormatter
